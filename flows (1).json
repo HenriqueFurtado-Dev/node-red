@@ -1,0 +1,261 @@
+[
+    {
+        "id": "48f3046ec45d64ae",
+        "type": "tab",
+        "label": "Conexão Watson",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d1507b7033268376",
+        "type": "inject",
+        "z": "48f3046ec45d64ae",
+        "name": "Olá, tudo bem?",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Olá, tudo bem?",
+        "payloadType": "str",
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "5d256c191a24d3c4"
+            ]
+        ]
+    },
+    {
+        "id": "5d256c191a24d3c4",
+        "type": "watson-conversation-v1",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "25742902766de0f1"
+            ]
+        ]
+    },
+    {
+        "id": "25742902766de0f1",
+        "type": "debug",
+        "z": "48f3046ec45d64ae",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0d504e6bf2b17ceb",
+        "type": "watson-conversation-v1",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "workspaceid": "",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "bd4d56e1bfaaf042"
+            ]
+        ]
+    },
+    {
+        "id": "bd4d56e1bfaaf042",
+        "type": "debug",
+        "z": "48f3046ec45d64ae",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.output.generic[0].text",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4c2277dd701bfdcf",
+        "type": "inject",
+        "z": "48f3046ec45d64ae",
+        "name": "Olá, tudo bem?",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Olá, tudo bem?",
+        "payloadType": "str",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "0d504e6bf2b17ceb"
+            ]
+        ]
+    },
+    {
+        "id": "b175c812f75cca76",
+        "type": "inject",
+        "z": "48f3046ec45d64ae",
+        "name": "Olá, tudo bem?",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Olá, tudo bem?",
+        "payloadType": "str",
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "4af4041c3012d653"
+            ]
+        ]
+    },
+    {
+        "id": "4af4041c3012d653",
+        "type": "watson-text-to-speech",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "lang": "",
+        "langhidden": "",
+        "langcustom": "",
+        "langcustomhidden": "",
+        "voice": "",
+        "voicehidden": "",
+        "format": "audio/wav",
+        "password": "",
+        "apikey": "",
+        "payload-response": false,
+        "service-endpoint": "",
+        "x": 460,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20099c16e325b166",
+        "type": "http request",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://nodered.org/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 410,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1dcf55b460b96732",
+        "type": "html",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "",
+        "ret": "html",
+        "as": "single",
+        "x": 590,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b70a83a25e5380a2",
+        "type": "http in",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "url": "/minha-api",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4023267bed1d9970",
+        "type": "html",
+        "z": "48f3046ec45d64ae",
+        "name": "",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "",
+        "ret": "html",
+        "as": "single",
+        "x": 630,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    }
+]

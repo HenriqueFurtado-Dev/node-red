@@ -1,0 +1,122 @@
+[
+    {
+        "id": "1e37045b6ccdf601",
+        "type": "tab",
+        "label": "Hello World",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2bf5f73d921a5422",
+        "type": "inject",
+        "z": "1e37045b6ccdf601",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World!",
+        "payloadType": "str",
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "4c447448fb41e133"
+            ]
+        ]
+    },
+    {
+        "id": "4c447448fb41e133",
+        "type": "debug",
+        "z": "1e37045b6ccdf601",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "596204f37b3c8692",
+        "type": "inject",
+        "z": "1e37045b6ccdf601",
+        "name": "Hello World",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World",
+        "payloadType": "str",
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "62a262f0dd73dc60"
+            ]
+        ]
+    },
+    {
+        "id": "62a262f0dd73dc60",
+        "type": "function",
+        "z": "1e37045b6ccdf601",
+        "name": "Adicionar hora a mensagem",
+        "func": "var dateNow = new Date();\nvar timeAsString = dateNow.toLocaleTimeString();\nmsg.payload = msg.payload + ' A hora é ' + timeAsString + '.';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "335e87b91b3725bc"
+            ]
+        ]
+    },
+    {
+        "id": "335e87b91b3725bc",
+        "type": "debug",
+        "z": "1e37045b6ccdf601",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 340,
+        "wires": []
+    }
+]
